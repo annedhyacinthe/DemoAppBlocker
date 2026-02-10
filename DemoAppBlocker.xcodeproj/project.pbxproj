@@ -6,14 +6,33 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E187E5702F399610005DAEF6 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E185A8E22F283D9900F28532 /* DemoAppBlocker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoAppBlocker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E187E5622F39960F005DAEF6 /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E185A8E42F283D9900F28532 /* DemoAppBlocker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = DemoAppBlocker;
+			sourceTree = "<group>";
+		};
+		E187E5642F399610005DAEF6 /* DeviceActivityMonitorConfig */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = DeviceActivityMonitorConfig;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -33,6 +52,8 @@
 			isa = PBXGroup;
 			children = (
 				E185A8E42F283D9900F28532 /* DemoAppBlocker */,
+				E187E5642F399610005DAEF6 /* DeviceActivityMonitorConfig */,
+				E187E5612F39960F005DAEF6 /* Frameworks */,
 				E185A8E32F283D9900F28532 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,6 +66,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		E187E5612F39960F005DAEF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E187E5622F39960F005DAEF6 /* DeviceActivity.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -55,6 +84,7 @@
 				E185A8DE2F283D9900F28532 /* Sources */,
 				E185A8DF2F283D9900F28532 /* Frameworks */,
 				E185A8E02F283D9900F28532 /* Resources */,
+				E187E5702F399610005DAEF6 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);

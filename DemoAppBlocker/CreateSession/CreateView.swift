@@ -14,6 +14,9 @@ struct CreateView: View {
     @Environment(\.modelContext) private var modelContext
     @State var sessionName: String = ""
     @State var activitySelection = FamilyActivitySelection()
+    @State var startTime: DateComponents = DateComponents(hour: 5, minute: 30)
+    @State var endTime: DateComponents = DateComponents(hour: 7, minute: 30)
+    @State var choosenDays: Set<Int> = []
     
     var body: some View {
         VStack{
@@ -37,21 +40,42 @@ struct CreateView: View {
             }
             .padding(.horizontal,20)
             
-            
-            TextField(
-                "Enter Session Name",
-                text: $sessionName
-            )
-            .foregroundStyle(Color.black)
-            .font(.system(size: 30, design: .monospaced))
-            .multilineTextAlignment(.leading)
-            Rectangle()
-                .frame(height: 1)
-                .foregroundColor(.black)
-                .padding(.leading, 5)
-                .padding(.trailing, 16)
+            VStack{
+                TextField(
+                    "Enter Session Name",
+                    text: $sessionName
+                )
+                .foregroundStyle(Color.black)
+                .font(.system(size: 30, design: .monospaced))
+                .multilineTextAlignment(.leading)
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(.black)
+                    .padding(.leading, 5)
+                    .padding(.trailing, 16)
+            }
+            .padding(.vertical,10)
+            .background(Color.gray.opacity(0.57))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .padding(.horizontal,4)
             
             AppSelectionView(activitySelection: $activitySelection)
+                .padding(.vertical,8)
+                .background(Color.gray.opacity(0.57))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .padding(.horizontal,4)
+            
+            TimeSelectionView(startTime: $startTime, endTime: $endTime)
+                .padding(.vertical,8)
+                .background(Color.gray.opacity(0.57))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .padding(.horizontal,4)
+            
+            DaySelectionView(tappedDays: $choosenDays)
+                .background(Color.gray.opacity(0.57))
+                .foregroundColor(.white) // Set the text color
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .padding(.horizontal,4)
             
         }
         .frame(maxHeight:.infinity,alignment: .top)
