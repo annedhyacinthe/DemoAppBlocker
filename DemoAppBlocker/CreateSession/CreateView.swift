@@ -28,9 +28,11 @@ struct CreateView: View {
                 Spacer()
                 Button("Save") {
                     if(!activitySelection.applicationTokens.isEmpty || !activitySelection.categoryTokens.isEmpty || !activitySelection.webDomainTokens.isEmpty){
-                        let session = Session(selectedApps: activitySelection, id: UUID(), name: sessionName, isBlocked: false)
+                        let sessionId = UUID()
+                        let session = Session(selectedApps: activitySelection, id: sessionId, name: sessionName, isBlocked: false)
                         modelContext.insert(session)
                         try? modelContext.save()
+                        ActivityUtil().createActivity(days: choosenDays, startTime: startTime, endTime: endTime, sessionId: sessionId.uuidString)
                         dismiss()
                     }
                 }
