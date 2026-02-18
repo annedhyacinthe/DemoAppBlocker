@@ -49,6 +49,14 @@
 			);
 			target = E10BFD702F3D2EC300E2609C /* DeviceActivityMonitorExtension */;
 		};
+		E10BFD852F3D66C200E2609C /* Exceptions for "DemoAppBlocker" folder in "DeviceActivityMonitorExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Session.swift,
+				Util.swift,
+			);
+			target = E10BFD702F3D2EC300E2609C /* DeviceActivityMonitorExtension */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -62,6 +70,9 @@
 		};
 		E185A8E42F283D9900F28532 /* DemoAppBlocker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E10BFD852F3D66C200E2609C /* Exceptions for "DemoAppBlocker" folder in "DeviceActivityMonitorExtension" target */,
+			);
 			path = DemoAppBlocker;
 			sourceTree = "<group>";
 		};

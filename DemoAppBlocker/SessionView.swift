@@ -13,33 +13,13 @@ struct sessionView: View {
     let currSession: Session
     
     func applyBlock() {
-        // 1. Get tokens of selected apps
-        let applicationTokens = currSession.selectedApps.applicationTokens
-        let categoryTokens = currSession.selectedApps.categoryTokens
-        let webTokens = currSession.selectedApps.webDomainTokens
-        
-        // 2. Create a ManagedSettingsStore specifically for the current session
-        let store = ManagedSettingsStore(named: ManagedSettingsStore.Name("\(currSession.id)Store"))
-        
-        // 3. Use store to apply shields
-        store.shield.applications = applicationTokens.isEmpty ? nil : applicationTokens
-        //Categories need the specific
-        store.shield.applicationCategories = categoryTokens.isEmpty ? nil : .specific(categoryTokens)
-        store.shield.webDomains = webTokens.isEmpty ? nil : webTokens
-        
         currSession.isBlocked = true
+        BlockUtil().applyBlock(currSession: currSession)
     }
     
     func removeBlock() {
-        // 1. Get specific ManagedSettingsStore for current session
-        let store = ManagedSettingsStore(named: ManagedSettingsStore.Name("\(currSession.id)Store"))
-        
-        // 2. Remove apps from store to remove shield
-        store.shield.applications = nil
-        store.shield.applicationCategories = nil
-        store.shield.webDomains = nil
-        
         currSession.isBlocked = false
+        BlockUtil().removeBlock(currSession: currSession)
     }
     
     var body: some View {

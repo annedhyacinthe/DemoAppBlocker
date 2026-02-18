@@ -17,6 +17,10 @@ struct ContentView: View {
         NavigationStack(path: $path){
             VStack{
                 HStack{
+//                    Button("print") {
+//                        DebuggingUtil().printScheduledActivities()
+//                        DebuggingUtil().printSessions()
+//                    }
                     Spacer()
                     Spacer()
                     Text("Sessions")
