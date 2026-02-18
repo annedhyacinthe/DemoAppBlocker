@@ -12,7 +12,7 @@ import FamilyControls
 @main
 struct DemoAppBlockerApp: App {
     let center = AuthorizationCenter.shared
-
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

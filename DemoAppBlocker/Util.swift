@@ -47,18 +47,18 @@ class ActivityUtil {
     }
     
     func deleteActivity(sessionId: String){
-            var holder: [DeviceActivityName] = []
-            center.activities.forEach{activity in
-                if(activity.rawValue.contains(sessionId)){
-                    holder.append(activity)
-                }
-            }
-            for name in holder{
-                if (center.schedule(for: name) != nil){
-                    center.stopMonitoring([name])
-                }
+        var holder: [DeviceActivityName] = []
+        center.activities.forEach{activity in
+            if(activity.rawValue.contains(sessionId)){
+                holder.append(activity)
             }
         }
+        for name in holder{
+            if (center.schedule(for: name) != nil){
+                center.stopMonitoring([name])
+            }
+        }
+    }
 }
 
 @Observable
@@ -121,26 +121,26 @@ class DebuggingUtil{
     let center = DeviceActivityCenter()
     
     func printScheduledActivities(){
-            print("count: ",center.activities.count)
-            center.activities.forEach{activity in
-                print("ACTIVITY: ", activity.rawValue)
-                print(center.schedule(for: activity))
-            }
+        print("count: ",center.activities.count)
+        center.activities.forEach{activity in
+            print("ACTIVITY: ", activity.rawValue)
+            print(center.schedule(for: activity))
         }
+    }
     
     func printSessions(){
-            let container = try? ModelContainer(for: Session.self)
+        let container = try? ModelContainer(for: Session.self)
         
-
-            let context = ModelContext(container!)
-            let descriptor = FetchDescriptor<Session>()
-            let moderationSessions = try? context.fetch(descriptor)
-       
-            print("ALL SESSIONS")
-            moderationSessions!.forEach{ session in
-                print("name: \(session.name)")
-                print("id: \(session.id)")
-                print("isBlocked: \(session.isBlocked)")
-            }
+        
+        let context = ModelContext(container!)
+        let descriptor = FetchDescriptor<Session>()
+        let moderationSessions = try? context.fetch(descriptor)
+        
+        print("ALL SESSIONS")
+        moderationSessions!.forEach{ session in
+            print("name: \(session.name)")
+            print("id: \(session.id)")
+            print("isBlocked: \(session.isBlocked)")
         }
+    }
 }
