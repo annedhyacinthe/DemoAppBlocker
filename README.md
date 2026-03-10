@@ -1,6 +1,9 @@
 ## Overview
 In this project users will be able to create an app blocker where they will be able to choose the apps that will be blocked and the time that they want them blocked.
 
+## Install
+Xcode - 16
+IOS - 17
 ## Overview of Branches
 ### UsesFamilyControlAndManagedSettings 
 Uses the Family Control and Managed Settings framework from Apples Screen Time API to block and unblock selected apps at the push of a button. [helpful article](https://medium.com/@annedhyacinthe/article-1-0fdae44ead9b)
